@@ -18,11 +18,15 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './pages/list/list.module#ListPageModule',
-  }
+  },
+  {
+    path: 'hero-detail',
+    loadChildren: './pages/hero-detail/hero-detail.module#HeroDetailPageModule'
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
