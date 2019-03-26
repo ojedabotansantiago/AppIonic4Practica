@@ -21,7 +21,11 @@ const routes: Routes = [
   },
   {
     path: 'hero-detail',
-    loadChildren: './pages/hero-detail/hero-detail.module#HeroDetailPageModule'
+    loadChildren: './pages/hero-detail/hero-detail.module#HeroDetailPageModule',
+  },
+  {
+    path: 'login',
+    loadChildren: './login/login.module#LoginPageModule'
   },
 ];
 
