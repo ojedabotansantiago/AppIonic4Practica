@@ -8,11 +8,12 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPage } from './login.page';
 import { TranslateModule } from '@ngx-translate/core';
 
+
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage
-  }
+    component: LoginPage,
+  },
 ];
 
 @NgModule({
@@ -23,6 +24,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     TranslateModule
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage],
 })
 export class LoginPageModule {}
