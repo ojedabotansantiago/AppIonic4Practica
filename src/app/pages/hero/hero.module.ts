@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HeroPage } from './hero.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -15,12 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [HeroPage]
+  imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes), TranslateModule],
+  declarations: [HeroPage],
 })
 export class HeroPageModule {}
