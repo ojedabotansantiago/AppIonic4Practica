@@ -15,6 +15,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+/* services */
+import { GlobalVarsService } from './services/global-vars/global-vars.service';
+import { AuthService } from './services/auth-service/auth.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -38,7 +41,14 @@ export function createTranslateLoader(http: HttpClient) {
     AngularFireModule.initializeApp(configFirebase),
     AngularFireAuthModule,
   ],
-  providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, HttpClient],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    HttpClient,
+    GlobalVarsService,
+    AuthService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

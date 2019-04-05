@@ -11,6 +11,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "config": {
+    "ionic_bundler": "webpack",
+    "ionic_source_map_type": "#inline-source-map"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "^7.2.2",
@@ -29,7 +33,7 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.5.4",
     "firebase": "^5.9.1",
-    "rxjs": "^6.3.3",
+    "rxjs": "^6.4.0",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {

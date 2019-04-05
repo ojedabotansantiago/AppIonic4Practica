@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  constructor(private route: ActivatedRoute) {}
+  ionViewWillEnter() {
+    this.route.params.pipe(pluck('isLogin')).subscribe(arg => {});
+  }
 }
