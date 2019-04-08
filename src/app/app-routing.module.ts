@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 const routes: Routes = [
   {
     path: '',
@@ -26,11 +26,6 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './pages/list/list.module#ListPageModule',
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'hero-detail',
-    loadChildren: './pages/hero-detail/hero-detail.module#HeroDetailPageModule',
     canActivate: [AuthGuard],
   },
   {

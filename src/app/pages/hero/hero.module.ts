@@ -1,3 +1,4 @@
+import { HeroesComponent } from './../../components/heroes/heroes.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes), TranslateModule],
-  declarations: [HeroPage],
+  entryComponents: [HeroesComponent],
+  declarations: [HeroPage, HeroesComponent],
 })
 export class HeroPageModule {}

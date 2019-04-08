@@ -1,0 +1,27 @@
+<div>
+  <h2>
+    {{ 'HEROES.HERO-COMPONENT-TITLE' | translate }}
+  </h2>
+  <div>
+    <span>Name: {{ hero.name | uppercase }}</span>
+  </div>
+  <div>
+    <span>Id: {{ hero.id }}</span>
+  </div>
+</div>
+
+<div>
+  <label
+    >name:
+    <input [(ngModel)]="hero.name" placeholder="name" />
+  </label>
+</div>
+
+<div class="hero-list" >
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let currentHero of heroes">
+      <span class="badge">{{ currentHero.id }}</span> {{ currentHero.name }}
+    </li>
+  </ul>
+</div>
