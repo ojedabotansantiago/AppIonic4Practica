@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
+import { GlobalVarsService } from './services/global-vars/global-vars.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +34,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router: Router
   ) {
     translate.setDefaultLang('es');
     translate.use('es');
@@ -44,5 +47,9 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+  logout() {
+    GlobalVarsService.isLogin = false;
+    this.router.navigate(['/login']);
   }
 }
