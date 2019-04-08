@@ -18,13 +18,14 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 /* services */
 import { GlobalVarsService } from './services/global-vars/global-vars.service';
 import { AuthService } from './services/auth-service/auth.service';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PageNotFoundComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
