@@ -19,6 +19,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GlobalVarsService } from './services/global-vars/global-vars.service';
 import { AuthService } from './services/auth-service/auth.service';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { FirebaseService } from './services/firebase-service/firebase.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -49,6 +50,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClient,
     GlobalVarsService,
     AuthService,
+    FirebaseService,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,5 +1,7 @@
 {
   "name": "AppIonic4Practica",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

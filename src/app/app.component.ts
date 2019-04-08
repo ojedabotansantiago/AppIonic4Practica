@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalVarsService } from './services/global-vars/global-vars.service';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private translate: TranslateService,
-    private router: Router
+    private router: Router,
+    private menu: MenuController
   ) {
     translate.setDefaultLang('es');
     translate.use('es');
@@ -44,6 +46,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+       this.menu.enable(false);
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
@@ -51,5 +54,6 @@ export class AppComponent {
   logout() {
     GlobalVarsService.isLogin = false;
     this.router.navigate(['/login']);
+    this.menu.enable(false);
   }
 }
