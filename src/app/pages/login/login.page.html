@@ -4,7 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-button color="primary" (click)="login('google')">google</ion-button>
-  <ion-button color="primary" (click)="login('github')">github</ion-button>
+<ion-content padding >
+<div *ngIf="isLoginGoogle">
+    <ion-button color="primary" (click)="login('google')">google</ion-button>
+    <ion-button color="primary" (click)="login('github')">github</ion-button>
+    <ion-button color="primary" (click)="login('email')">email</ion-button>
+</div>
+
+  <div *ngIf="!isLoginGoogle">
+    <app-login-with-email [isLoginWithGoogle]="isLoginGoogle"></app-login-with-email>
+  </div>
 </ion-content>

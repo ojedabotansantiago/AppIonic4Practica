@@ -4,12 +4,14 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
+import { LoginWithEmailComponent } from 'src/app/components/login-with-email/login-with-email.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss']
 })
 export class LoginPage {
+  public isLoginGoogle = true;
   constructor(
     private gVars: GlobalVarsService,
     private router: Router,
@@ -25,6 +27,10 @@ export class LoginPage {
   }
 
   private doLoginGoogle(loginMethodOption: string): any {
+    if (loginMethodOption === 'email') {
+      this.LoginWithEmailComponent();
+      return;
+    }
     this.auth
       .browserLogin(loginMethodOption)
       .then(res => {
@@ -34,6 +40,9 @@ export class LoginPage {
       .catch(err => {
         console.error(err);
       });
+  }
+  LoginWithEmailComponent(): any {
+    this.isLoginGoogle = false;
   }
 
   private confirmLogin(res: any) {

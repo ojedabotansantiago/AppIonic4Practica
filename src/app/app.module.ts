@@ -39,12 +39,12 @@ export function createTranslateLoader(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
-        deps: [HttpClient],
-      },
+        deps: [HttpClient]
+      }
     }),
     AngularFireModule.initializeApp(configFirebase),
     AngularFireAuthModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [
     StatusBar,
@@ -53,8 +53,8 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClient,
     GlobalVarsService,
     AuthService,
-    FirebaseService,
+    FirebaseService
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
