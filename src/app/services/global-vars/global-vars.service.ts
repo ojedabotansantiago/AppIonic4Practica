@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class GlobalVarsService {
 
   static isLogin = false;
+  userData: any;
 
   constructor() {}
 }

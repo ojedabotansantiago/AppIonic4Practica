@@ -10,6 +10,8 @@ import { pluck } from 'rxjs/operators';
 export class HomePage {
   constructor(private route: ActivatedRoute) {}
   ionViewWillEnter() {
-    this.route.params.pipe(pluck('isLogin')).subscribe(arg => {});
+    this.route.params.pipe(pluck('isLogin')).subscribe(arg => {
+      console.log(`hellow `);
+    });
   }
 }

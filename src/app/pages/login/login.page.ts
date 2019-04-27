@@ -2,16 +2,42 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalVarsService } from 'src/app/services/global-vars/global-vars.service';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
-
+import { Platform } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth-service/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  styleUrls: ['./login.page.scss']
 })
 export class LoginPage {
-  constructor(private gVars: GlobalVarsService, private router: Router, private menu: MenuController) {}
+  constructor(
+    private gVars: GlobalVarsService,
+    private router: Router,
+    private menu: MenuController,
+    private platform: Platform,
+    private auth: AuthService
+  ) {}
 
-  public login(params: any) {
+  public login(loginMethodOption: string) {
+    if (!this.platform.is('cordova')) {
+      this.doLoginGoogle(loginMethodOption);
+    }
+  }
+
+  private doLoginGoogle(loginMethodOption: string): any {
+    this.auth
+      .browserLogin(loginMethodOption)
+      .then(res => {
+        this.gVars.userData = res;
+        this.confirmLogin(res);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
+  private confirmLogin(res: any) {
+    console.log(res);
     GlobalVarsService.isLogin = true;
     this.menu.enable(GlobalVarsService.isLogin);
     console.log(GlobalVarsService.isLogin);
