@@ -1,0 +1,15 @@
+:root{
+  --ion-color-dark-shade:
+}
+
+:host{
+
+}
+
+ion-input{
+  border: 1px solid var(--ion-color-dark-shade);
+  &.has-error{
+
+  }
+}
+

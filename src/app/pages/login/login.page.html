@@ -6,9 +6,9 @@
 
 <ion-content padding >
 <div *ngIf="isLoginGoogle">
-    <ion-button color="primary" (click)="login('google')">google</ion-button>
-    <ion-button color="primary" (click)="login('github')">github</ion-button>
-    <ion-button color="primary" (click)="login('email')">email</ion-button>
+    <ion-button (click)="login('google')">google</ion-button>
+    <ion-button (click)="login('github')">github</ion-button>
+    <ion-button (click)="login('email')">email</ion-button>
 </div>
 
   <div *ngIf="!isLoginGoogle">

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
-import { LoginWithEmailComponent } from 'src/app/components/login-with-email/login-with-email.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -22,11 +21,11 @@ export class LoginPage {
 
   public login(loginMethodOption: string) {
     if (!this.platform.is('cordova')) {
-      this.doLoginGoogle(loginMethodOption);
+      this.doLogin(loginMethodOption);
     }
   }
 
-  private doLoginGoogle(loginMethodOption: string): any {
+  private doLogin(loginMethodOption: string): any {
     if (loginMethodOption === 'email') {
       this.LoginWithEmailComponent();
       return;

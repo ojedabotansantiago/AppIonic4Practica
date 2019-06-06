@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
-import { rejects } from 'assert';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   constructor(public afAuth: AngularFireAuth) {}
@@ -21,21 +18,32 @@ export class AuthService {
     return this.doGitHubLogin();
   }
 
-  private doGitHubLogin() {
-    return new Promise<any>((resolve, reject) => {
-      const provider = new firebase.auth.GithubAuthProvider();
-      provider.addScope('profile');
-      provider.addScope('email');
-      this.afAuth.auth.signInWithPopup(provider).then(
-        res => {
-          resolve(res);
-        },
-        err => {
-          reject(err);
-        }
-      );
-    });
+  public loginWithEmailAndPwd(userLoginParams) {
+    const email = userLoginParams.email;
+    const pwd = userLoginParams.pwd;
+    return this.afAuth.auth
+      .signInWithEmailAndPassword(email, pwd)
+      .then(res => {
+        return res;
+      })
+      .catch(err => {
+        return err;
+      });
   }
+
+  private doGitHubLogin() {
+    const provider = new firebase.auth.GithubAuthProvider();
+    provider.addScope('repo');
+    return this.afAuth.auth
+      .signInWithPopup(provider)
+      .then(res => {
+        return res;
+      })
+      .catch(err => {
+        return err;
+      });
+  }
+
   private doGoogleLogin(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       const provider = new firebase.auth.GoogleAuthProvider();

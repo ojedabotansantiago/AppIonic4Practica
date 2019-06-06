@@ -21,7 +21,7 @@ import { AuthService } from './services/auth-service/auth.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FirebaseService } from './services/firebase-service/firebase.service';
 import { HeroesComponent } from './components/heroes/heroes.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -39,12 +39,13 @@ export function createTranslateLoader(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     AngularFireModule.initializeApp(configFirebase),
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     StatusBar,
@@ -53,8 +54,8 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClient,
     GlobalVarsService,
     AuthService,
-    FirebaseService
+    FirebaseService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
