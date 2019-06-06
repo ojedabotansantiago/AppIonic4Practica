@@ -15,31 +15,33 @@ import { FormControl, FormGroup, FormBuilder, FormsModule, ReactiveFormsModule, 
 export class LoginWithEmailComponent implements OnInit {
   @Input() isLoginWithGoogle: boolean;
   @Output() loginDataForm;
-  loginForm: FormGroup;
   user = {
     email: '',
     pwd: '',
   };
-  email: any;
+  loginForm = this.fb.group({
+    email: [this.user.email, Validators.compose([Validators.required, Validators.minLength(4)])],
+    pwd: [this.user.pwd, Validators.compose([Validators.required, Validators.minLength(4)])],
+  });
+
   constructor(private auth: AuthService, private fb: FormBuilder) {}
 
   ngOnInit() {
     this.delclareForm();
   }
 
-  private delclareForm() {
-    this.loginForm = new FormGroup({
-      'email': new FormControl(this.user.email, [Validators.required, Validators.minLength(4)]),
-      'pwd': new FormControl(this.user.pwd, [Validators.required, Validators.minLength(4)]),
-    });
-  }
+  private delclareForm() {}
 
   public doLogin() {
-    console.log(this.loginForm);
+    const userData = {
+      email: this.loginForm.get('email'),
+      pwd: this.loginForm.get('pwd'),
+    };
+    this.loginWithEmailAndPwd(userData);
   }
 
-  public loginWithEmailAndPwd() {
-    this.auth.loginWithEmailAndPwd(this.loginForm);
+  public loginWithEmailAndPwd(userData) {
+    this.auth.loginWithEmailAndPwd(userData);
   }
 
   public backLogin() {

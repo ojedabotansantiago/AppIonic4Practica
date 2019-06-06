@@ -5,10 +5,10 @@
         <span>Email</span>
       </ion-col>
       <ion-col>
-        <ion-input id="email" formControlName="email"  [(ngModel)]="user.email"  required></ion-input>
+        <ion-input id="email" formControlName="email" required></ion-input>
 
-        <ion-text color='danger' *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger"></ion-text>
-
+        <ion-text color="danger" *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+          errorrrrr</ion-text>
       </ion-col>
     </ion-row>
 
@@ -18,6 +18,8 @@
       </ion-col>
       <ion-col>
         <ion-input formControlName="pwd" required></ion-input>
+         <ion-text color="danger" *ngIf="loginForm.get('pwd').invalid && (loginForm.get('pwd').dirty || loginForm.get('pwd').touched)">
+          errorrrrr</ion-text>
       </ion-col>
     </ion-row>
 
