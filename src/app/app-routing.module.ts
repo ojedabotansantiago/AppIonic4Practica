@@ -32,7 +32,9 @@ const routes: Routes = [
     path: 'login',
     loadChildren: './pages/login/login.module#LoginPageModule',
   },
+    { path: 'observables', loadChildren: './pages/observables/observables.module#ObservablesPageModule' },
   { path: '**', component: PageNotFoundComponent },
+
 ];
 
 @NgModule({
