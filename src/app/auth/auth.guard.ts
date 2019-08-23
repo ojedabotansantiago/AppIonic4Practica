@@ -13,7 +13,6 @@ export class AuthGuard implements CanActivate {
     return this.isUserLogin();
   }
 
-
   isUserLogin() {
     return GlobalVarsService.isLogin;
   }

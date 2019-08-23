@@ -25,11 +25,14 @@
 
     <ion-row>
       <ion-col>
-        <button type="submit" [disabled]="!loginForm.valid">Registrarse</button>
+        <ion-button color="primary" type="submit" [disabled]="!loginForm.valid" ></ion-button>
       </ion-col>
       <ion-col>
-        <button (click)="backLogin()">Volver</button>
+      
       </ion-col>
     </ion-row>
   </ion-grid>
 </form>
+<span>
+   <ion-button color="primary" type="submit" [disabled]="!loginForm.valid" (tap)="backLogin()" ></ion-button>
+</span>

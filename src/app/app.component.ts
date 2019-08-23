@@ -15,14 +15,14 @@ import { MenuController } from '@ionic/angular';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Hero',
-      url: '/hero',
-      icon: 'aperture',
-    },
-    {
       title: 'Home',
       url: '/home',
       icon: 'home',
+    },
+    {
+      title: 'Hero',
+      url: '/hero',
+      icon: 'aperture',
     },
     {
       title: 'List',
@@ -46,7 +46,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-       this.menu.enable(false);
+      this.menu.enable(false);
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

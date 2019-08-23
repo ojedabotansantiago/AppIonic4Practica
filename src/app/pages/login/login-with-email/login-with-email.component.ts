@@ -44,7 +44,9 @@ export class LoginWithEmailComponent implements OnInit {
     this.auth.loginWithEmailAndPwd(userData);
   }
 
-  public backLogin() {
+  public backLogin () {
+    // tslint:disable-next-line:no-debugger
+    debugger;
     this.isLoginWithGoogle = true;
     console.log(this.isLoginWithGoogle);
   }
