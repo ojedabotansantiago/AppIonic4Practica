@@ -18,7 +18,19 @@ export class AuthService {
     return this.doGitHubLogin();
   }
 
-  public loginWithEmailAndPwd(userLoginParams) {
+  public loginWithEmailAndPwd(userLoginParams): Promise<any> {
+    const email = userLoginParams.email;
+    const pwd = userLoginParams.pwd;
+    return this.afAuth.auth
+      .signInWithEmailAndPassword(email, pwd)
+      .then(res => {
+        return res;
+      })
+      .catch(err => {
+        return err;
+      });
+  }
+  public registerWithEmailAndPwd(userLoginParams): Promise<any> {
     const email = userLoginParams.email;
     const pwd = userLoginParams.pwd;
     return this.afAuth.auth
@@ -31,6 +43,9 @@ export class AuthService {
       });
   }
 
+public logout(user) {
+  this.afAuth.auth.signOut();
+}
   private doGitHubLogin() {
     const provider = new firebase.auth.GithubAuthProvider();
     provider.addScope('repo');
@@ -59,4 +74,5 @@ export class AuthService {
       );
     });
   }
+
 }

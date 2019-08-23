@@ -12,6 +12,6 @@
 </div>
 
   <div *ngIf="!isLoginGoogle">
-    <app-login-with-email [isLoginWithGoogle]="isLoginGoogle"></app-login-with-email>
+    <app-login-with-email (isLoginWithGoogle)="checkIsLoginGoogle($event)" (loginDataForm)= "getLoginDataForm($event)"></app-login-with-email>
   </div>
 </ion-content>

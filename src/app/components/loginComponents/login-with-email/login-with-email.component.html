@@ -18,21 +18,21 @@
       </ion-col>
       <ion-col>
         <ion-input formControlName="pwd" required></ion-input>
-         <ion-text color="danger" *ngIf="loginForm.get('pwd').invalid && (loginForm.get('pwd').dirty || loginForm.get('pwd').touched)">
+        <ion-text color="danger" *ngIf="loginForm.get('pwd').invalid && (loginForm.get('pwd').dirty || loginForm.get('pwd').touched)">
           errorrrrr</ion-text>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-button color="primary" type="submit" [disabled]="!loginForm.valid" ></ion-button>
+        <ion-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</ion-button>
       </ion-col>
-      <ion-col>
-      
+      <ion-col> 
+          <ion-button color="tertiary"  (click)="backLogin()">Volver</ion-button>
+      </ion-col>
+      <ion-col> 
+          <ion-button color="secondary"  (click)="registerWithEmail()">Registrarse</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
 </form>
-<span>
-   <ion-button color="primary" type="submit" [disabled]="!loginForm.valid" (tap)="backLogin()" ></ion-button>
-</span>

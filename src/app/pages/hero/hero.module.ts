@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { HeroPage } from './hero.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { RegisterWithEmailComponent } from '../../components/loginComponents/register-with-email/register-with-email.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes), TranslateModule],
-  entryComponents: [HeroesComponent],
-  declarations: [HeroPage, HeroesComponent],
+  entryComponents: [HeroesComponent, RegisterWithEmailComponent],
+  declarations: [HeroPage, HeroesComponent, RegisterWithEmailComponent],
 })
 export class HeroPageModule {}

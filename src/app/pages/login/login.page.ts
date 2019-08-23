@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalVarsService } from 'src/app/services/global-vars/global-vars.service';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
-import { Platform } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss']
+  styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
   public isLoginGoogle = true;
@@ -15,16 +14,23 @@ export class LoginPage {
     private gVars: GlobalVarsService,
     private router: Router,
     private menu: MenuController,
-    private platform: Platform,
     private auth: AuthService
   ) {}
 
-  public login(loginMethodOption: string) {
-    if (!this.platform.is('cordova')) {
-      this.doLogin(loginMethodOption);
-    }
+  public login(loginMethodOption: string): void {
+    this.doLogin(loginMethodOption);
+  }
+  public checkIsLoginGoogle(isLogin) {
+    console.log(isLogin);
+    this.isLoginGoogle = isLogin;
+  }
+  public LoginWithEmailComponent(): any {
+    this.isLoginGoogle = false;
   }
 
+  public getLoginDataForm(loginDataForm) {
+    console.log(loginDataForm);
+  }
   private doLogin(loginMethodOption: string): any {
     if (loginMethodOption === 'email') {
       this.LoginWithEmailComponent();
@@ -40,10 +46,6 @@ export class LoginPage {
         console.error(err);
       });
   }
-  LoginWithEmailComponent(): any {
-    this.isLoginGoogle = false;
-  }
-
   private confirmLogin(res: any) {
     console.log(res);
     GlobalVarsService.isLogin = true;
