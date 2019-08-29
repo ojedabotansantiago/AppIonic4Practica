@@ -1,46 +1,48 @@
-<form [formGroup]="registerNewUserForm" (ngSubmit)="registerWithEmail()">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <span>Email</span>
-      </ion-col>
-      <ion-col>
-        <ion-input id="email" formControlName="email" required></ion-input>
+<ion-content>
+  <app-header [breadCums]="'Register with email'" [isBackButtonEnabled]="'true'" [goTo]="goto" (backButtonPushed)="bakToLoginHome()" > </app-header>
 
-        <ion-text
-          color="danger"
-          *ngIf="registerNewUserForm.get('email').invalid && (registerNewUserForm.get('email').dirty || registerNewUserForm.get('email').touched)"
-        >
-          errorrrrr</ion-text
-        >
-      </ion-col>
-    </ion-row>
+  <form [formGroup]="registerNewUserForm" (ngSubmit)="registerWithEmail()">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <span>Email</span>
+        </ion-col>
+        <ion-col>
+          <ion-input id="email" formControlName="email" required></ion-input>
 
-    <ion-row>
-      <ion-col>
-        <span>pwd</span>
-      </ion-col>
-      <ion-col>
-        <ion-input formControlName="pwd" required></ion-input>
-        <ion-text
-          color="danger"
-          *ngIf="registerNewUserForm.get('pwd').invalid && (registerNewUserForm.get('pwd').dirty || registerNewUserForm.get('pwd').touched)"
-        >
-          errorrrrr</ion-text
-        >
-      </ion-col>
-    </ion-row>
+          <ion-text
+            color="danger"
+            *ngIf="registerNewUserForm.get('email').invalid && (registerNewUserForm.get('email').dirty || registerNewUserForm.get('email').touched)"
+          >
+            errorrrrr</ion-text
+          >
+        </ion-col>
+      </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <ion-button color="primary" type="submit" [disabled]="!registerNewUserForm.valid">Login</ion-button>
-      </ion-col>
-      <ion-col>
-      </ion-col>
-      <ion-col>
-        <ion-button color="tertiary" (click)="bakToLoginHome()">Volver</ion-button>
-      </ion-col>
+      <ion-row>
+        <ion-col>
+          <span>pwd</span>
+        </ion-col>
+        <ion-col>
+          <ion-input formControlName="pwd" required></ion-input>
+          <ion-text
+            color="danger"
+            *ngIf="registerNewUserForm.get('pwd').invalid && (registerNewUserForm.get('pwd').dirty || registerNewUserForm.get('pwd').touched)"
+          >
+            errorrrrr</ion-text
+          >
+        </ion-col>
+      </ion-row>
 
-    </ion-row>
-  </ion-grid>
-</form>
+      <ion-row>
+        <ion-col>
+          <ion-button color="primary" type="submit" [disabled]="!registerNewUserForm.valid">Login</ion-button>
+        </ion-col>
+        <ion-col> </ion-col>
+        <ion-col>
+          <ion-button color="tertiary" (click)="bakToLoginHome()">Volver</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

@@ -13,6 +13,7 @@ export class RegisterWithEmailComponent implements OnInit {
     email: '',
     pwd: '',
   };
+  goto: string = 'login';
   registerNewUserForm = this.fb.group({
     email: [this.user.email, Validators.compose([Validators.required, Validators.minLength(4)])],
     pwd: [this.user.pwd, Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -24,7 +25,7 @@ export class RegisterWithEmailComponent implements OnInit {
   public bakToLoginHome() {
     this.modalController.dismiss('no quiere hacer login');
   }
-  public registerWithEmail () {
+  public registerWithEmail() {
     const userData = {
       email: this.registerNewUserForm.get('email'),
       pwd: this.registerNewUserForm.get('pwd'),

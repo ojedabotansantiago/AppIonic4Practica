@@ -9,13 +9,12 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  public isLoginGoogle = true;
-  constructor(
-    private gVars: GlobalVarsService,
-    private router: Router,
-    private menu: MenuController,
-    private auth: AuthService
-  ) {}
+  public isLoginGoogle: boolean = true;
+  public isBackButtonEnabled: boolean = false;
+  public breadCums: string;
+  constructor(private gVars: GlobalVarsService, private router: Router, private menu: MenuController, private auth: AuthService) {
+    this.breadCums = 'Login';
+  }
 
   public login(loginMethodOption: string): void {
     this.doLogin(loginMethodOption);

@@ -1,5 +1,5 @@
 import { configFirebase } from './../environments/firebaseConfig';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -20,7 +20,6 @@ import { GlobalVarsService } from './services/global-vars/global-vars.service';
 import { AuthService } from './services/auth-service/auth.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FirebaseService } from './services/firebase-service/firebase.service';
-import { HeroesComponent } from './components/heroes/heroes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export function createTranslateLoader(http: HttpClient) {
@@ -57,5 +56,6 @@ export function createTranslateLoader(http: HttpClient) {
     FirebaseService,
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

@@ -1,17 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding >
-<div *ngIf="isLoginGoogle">
+<app-header [breadCums] = "breadCums" [isBackButtonEnabled]="isBackButtonEnabled" [goto]="'login'"> </app-header>
+<ion-content padding>
+  <div *ngIf="isLoginGoogle">
     <ion-button (click)="login('google')">google</ion-button>
     <ion-button (click)="login('github')">github</ion-button>
     <ion-button (click)="login('email')">email</ion-button>
-</div>
+  </div>
 
   <div *ngIf="!isLoginGoogle">
-    <app-login-with-email (isLoginWithGoogle)="checkIsLoginGoogle($event)" (loginDataForm)= "getLoginDataForm($event)"></app-login-with-email>
+    <app-login-with-email (isLoginWithGoogle)="checkIsLoginGoogle($event)" (loginDataForm)="getLoginDataForm($event)"></app-login-with-email>
   </div>
 </ion-content>
