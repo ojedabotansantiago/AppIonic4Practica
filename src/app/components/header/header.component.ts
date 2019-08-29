@@ -12,9 +12,11 @@ export class HeaderComponent implements OnInit {
   @Input() goTo: string;
   @Output() backButtonPushed = new EventEmitter<string>();
   constructor() {}
-  ngOnInit() {}
+  ngOnInit () {
+    console.log(this.isBackButtonEnabled);
+  }
 
-  goBack (event) {
+  goBack () {
     this.backButtonPushed.emit('go to back page');
     console.log(event);
   }

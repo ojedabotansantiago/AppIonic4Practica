@@ -41,7 +41,7 @@ export class LoginWithEmailComponent implements OnInit {
     const modal = await this.modalController.create({
       component: RegisterWithEmailComponent,
     });
-    const data = modal.onWillDismiss();
+    const data = modal.onDidDismiss();
     data.then(res => {
       this.backLogin();
     });

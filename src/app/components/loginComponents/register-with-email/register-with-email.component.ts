@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth-service/auth.service';
 import { ModalController } from '@ionic/angular';
 
@@ -8,12 +8,12 @@ import { ModalController } from '@ionic/angular';
   templateUrl: './register-with-email.component.html',
   styleUrls: ['./register-with-email.component.scss'],
 })
-export class RegisterWithEmailComponent implements OnInit {
+export class RegisterWithEmailComponent implements OnInit, OnChanges {
   private user = {
     email: '',
     pwd: '',
   };
-  goto: string = 'login';
+  goto: string = '/login';
   registerNewUserForm = this.fb.group({
     email: [this.user.email, Validators.compose([Validators.required, Validators.minLength(4)])],
     pwd: [this.user.pwd, Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -21,7 +21,7 @@ export class RegisterWithEmailComponent implements OnInit {
   constructor(private fb: FormBuilder, private auth: AuthService, public modalController: ModalController) {}
 
   ngOnInit() {}
-
+  ngOnChanges() {}
   public bakToLoginHome() {
     this.modalController.dismiss('no quiere hacer login');
   }
