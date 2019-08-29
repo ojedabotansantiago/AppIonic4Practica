@@ -21,6 +21,7 @@ import { AuthService } from './services/auth-service/auth.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FirebaseService } from './services/firebase-service/firebase.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './components/shared.modules';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,6 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [
     StatusBar,
