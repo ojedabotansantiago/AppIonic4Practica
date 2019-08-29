@@ -18,6 +18,7 @@ import { ListPage } from './list.page';
       },
     ]),
   ],
+  entryComponents: [],
   declarations: [ListPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -18,7 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes), TranslateModule],
-  entryComponents: [HeroesComponent],
+  entryComponents: [],
   declarations: [HeroPage, HeroesComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

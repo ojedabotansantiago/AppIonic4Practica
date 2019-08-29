@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
   @Input() breadCums: string;
   @Input() subHeader?: string = undefined;
   @Input() isBackButtonEnabled: boolean;
+  @Input() isMenuButtonEnabled: boolean = false;
   @Input() goTo: string;
   @Output() backButtonPushed = new EventEmitter<string>();
   constructor() {}

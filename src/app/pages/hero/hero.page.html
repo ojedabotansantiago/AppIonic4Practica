@@ -1,20 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Hero
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [breadCums]="breadCums" [isBackButtonEnabled]="isBackButtonEnabled" [goto]="'home'" [isMenuButtonEnabled]="isMenuButtonEnabled">
+</app-header>
 
 <ion-content padding>
-  <img src="https://elvortex.com/wp-content/uploads/2017/09/MHA_kabegami_A-1.png" alt="">
+  <img src="https://elvortex.com/wp-content/uploads/2017/09/MHA_kabegami_A-1.png" alt="" />
   <div>
     <div>{{ 'HELLO' | translate }}</div>
   </div>
   <app-heroes></app-heroes>
 </ion-content>
-
-

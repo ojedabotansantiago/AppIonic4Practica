@@ -8,6 +8,9 @@ import { pluck } from 'rxjs/operators';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  public breadCums: string = 'Hero';
+  public isBackButtonEnabled: boolean = true;
+  public isMenuButtonEnabled: boolean = true;
   constructor(private route: ActivatedRoute) {}
   ionViewWillEnter() {
     this.route.params.pipe(pluck('isLogin')).subscribe(arg => {

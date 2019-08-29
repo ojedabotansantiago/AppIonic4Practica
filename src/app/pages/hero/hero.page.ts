@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero.page.scss'],
 })
 export class HeroPage implements OnInit {
+  public breadCums: string = 'Hero';
+  public isBackButtonEnabled: boolean = true;
+  public isMenuButtonEnabled: boolean = true;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

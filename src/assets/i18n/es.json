@@ -1,5 +1,8 @@
 {
   "HELLO": "Hola",
+  "HOME":{
+    "MAIN-TEXT" : "Welcome to this new app to learn ionc 4 framework with angular rules !!!!"
+  },
   "HEROES":{
     "HERO-COMPONENT-TITLE": "TITLE"
   }
