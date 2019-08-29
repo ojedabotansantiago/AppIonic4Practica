@@ -1,15 +1,23 @@
-:root{
-  --ion-color-dark-shade:
+:root {
+  --ion-color-dark-shade: ;
 }
 
-:host{
-
+:host {
 }
-
-ion-input{
-  border: 1px solid var(--ion-color-dark-shade);
-  &.has-error{
-
+.register-button {
+  width: 100%;
+  align-self: center;
+}
+ion-row {
+  display: flex;
+  ion-col {
+    ion-button {
+      display: flex;
+    }
   }
 }
-
+ion-input {
+  border: 1px solid var(--ion-color-dark-shade);
+  &.has-error {
+  }
+}

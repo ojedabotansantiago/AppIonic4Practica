@@ -1,10 +1,33 @@
-<app-header [breadCums] = "breadCums" [isBackButtonEnabled]="isBackButtonEnabled" [goto]="'login'"> </app-header>
+<app-header [breadCums]="breadCums" [isBackButtonEnabled]="isBackButtonEnabled" [goto]="'login'"> </app-header>
 <ion-content padding>
-  <div *ngIf="isLoginGoogle">
-    <ion-button (click)="login('google')">google</ion-button>
-    <ion-button (click)="login('github')">github</ion-button>
-    <ion-button (click)="login('email')">email</ion-button>
-  </div>
+  <ion-grid *ngIf="isLoginGoogle">
+    <ion-row align-self-center>
+      <div class="ion-text-center">
+        <p>Do login with Google</p>
+      </div>
+    </ion-row>
+    <ion-row>
+      <ion-button (click)="login('google')" size="large" color="danger"> <ion-icon ios="logo-google" md="logo-google"></ion-icon> </ion-button>
+    </ion-row>
+
+    <ion-row>
+      <div class="ion-text-center">
+        <p>Do login with GitHub</p>
+      </div>
+    </ion-row>
+    <ion-row>
+      <ion-button (click)="login('github')" size="large" color="dark"> <ion-icon ios="logo-github" md="logo-github"></ion-icon></ion-button>
+    </ion-row>
+
+    <ion-row>
+      <div class="ion-text-center">
+        <p>Do login with Email & PWD</p>
+      </div>
+    </ion-row>
+    <ion-row>
+      <ion-button (click)="login('email')" size="large" color="light"> <ion-icon ios="ios-mail" md="md-mail"></ion-icon> </ion-button>
+    </ion-row>
+  </ion-grid>
 
   <div *ngIf="!isLoginGoogle">
     <app-login-with-email (isLoginWithGoogle)="checkIsLoginGoogle($event)" (loginDataForm)="getLoginDataForm($event)"></app-login-with-email>
