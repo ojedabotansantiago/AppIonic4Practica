@@ -11,6 +11,7 @@ export class HomePage {
   public breadCums: string = 'Hero';
   public isBackButtonEnabled: boolean = true;
   public isMenuButtonEnabled: boolean = true;
+  public subHeader: string ='Welcome app';
   constructor(private route: ActivatedRoute) {}
   ionViewWillEnter() {
     this.route.params.pipe(pluck('isLogin')).subscribe(arg => {

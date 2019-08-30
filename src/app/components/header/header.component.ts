@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges {
   @Input() breadCums: string;
   @Input() subHeader?: string = undefined;
   @Input() isBackButtonEnabled: boolean;
@@ -13,11 +13,15 @@ export class HeaderComponent implements OnInit {
   @Input() goTo: string;
   @Output() backButtonPushed = new EventEmitter<string>();
   constructor() {}
-  ngOnInit () {
+  ngOnInit() {
     console.log(this.isBackButtonEnabled);
+    console.log(this.isMenuButtonEnabled);
   }
-
-  goBack () {
+  ngOnChanges() {
+    console.log(this.isBackButtonEnabled);
+    console.log(this.isMenuButtonEnabled);
+  }
+  goBack() {
     this.backButtonPushed.emit('go to back page');
     console.log(event);
   }

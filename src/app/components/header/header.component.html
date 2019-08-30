@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start" *ngIf="isBackButtonEnabled">
+    <ion-buttons *ngIf="isBackButtonEnabled">
       <ion-menu-button *ngIf="isMenuButtonEnabled"></ion-menu-button>
       <ion-back-button [defaultHref]="goTo" (click)="goBack()"></ion-back-button>
     </ion-buttons>

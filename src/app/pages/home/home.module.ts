@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '../../components/shared.modules';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { TranslateModule } from '@ngx-translate/core';
       },
     ]),
     TranslateModule,
+    SharedModule,
   ],
   entryComponents: [],
   declarations: [HomePage],
