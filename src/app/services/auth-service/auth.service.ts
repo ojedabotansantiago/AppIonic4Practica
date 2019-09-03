@@ -43,8 +43,8 @@ export class AuthService {
       });
   }
 
-public logout(user) {
-  this.afAuth.auth.signOut();
+public logout() {
+  return this.afAuth.auth.signOut();
 }
   private doGitHubLogin() {
     const provider = new firebase.auth.GithubAuthProvider();

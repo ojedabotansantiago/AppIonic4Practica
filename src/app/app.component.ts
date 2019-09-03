@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { GlobalVarsService } from './services/global-vars/global-vars.service';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { AuthService } from './services/auth-service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +38,8 @@ export class AppComponent {
     private statusBar: StatusBar,
     private translate: TranslateService,
     private router: Router,
-    private menu: MenuController
+    private menu: MenuController,
+    private auth: AuthService
   ) {
     translate.setDefaultLang('es');
     translate.use('es');
@@ -52,8 +54,10 @@ export class AppComponent {
     });
   }
   logout() {
-    GlobalVarsService.isLogin = false;
-    this.router.navigate(['/login']);
-    this.menu.enable(false);
+    this.auth.logout().then(_ => {
+      GlobalVarsService.isLogin = false;
+      this.router.navigate(['/login']);
+      this.menu.enable(false);
+    });
   }
 }
