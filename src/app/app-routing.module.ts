@@ -9,6 +9,12 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'user',
+    loadChildren: './pages/user/user.module#UserPageModule',
+    canActivate: [AuthGuard]
+  },
+
+  {
     path: 'hero',
     loadChildren: './pages/hero/hero.module#HeroPageModule',
     canActivate: [AuthGuard],
@@ -34,10 +40,11 @@ const routes: Routes = [
   },
   { path: 'observables', loadChildren: './pages/observables/observables.module#ObservablesPageModule' },
   { path: '**', component: PageNotFoundComponent },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

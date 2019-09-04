@@ -16,6 +16,11 @@ import { AuthService } from './services/auth-service/auth.service';
 export class AppComponent {
   public appPages = [
     {
+      title: 'User',
+      url: '/user',
+      icon: 'person',
+    },
+    {
       title: 'Home',
       url: '/home',
       icon: 'home',
@@ -29,7 +34,7 @@ export class AppComponent {
       title: 'List',
       url: '/list',
       icon: 'list',
-    },
+    }
   ];
 
   constructor(
